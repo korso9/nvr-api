@@ -12,6 +12,18 @@ const UserSchema = new mongoose.Schema({
   },
   highestScore: {
     type: Decimal,
+    min: 0,
+    max: 100,
+  },
+  score1: {
+    type: Decimal,
+    min: 0,
+    max: 100,
+  },
+  score2: {
+    type: Decimal,
+    min: 0,
+    max: 100,
   },
   averageScore: {
     type: Number,
@@ -24,11 +36,9 @@ const UserSchema = new mongoose.Schema({
     max: 2,
     required: true,
   },
-  resets: {
-    type: Number,
-    default: 0,
-    min: 0,
-    required: true,
+  freeMode: {
+    type: Boolean,
+    default: false,
   },
   user: {
     type: mongoose.Schema.ObjectId,
