@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
   product: {
     type: String,
-    enum: process.env.PRODUCT_LIST,
+    enum: process.env.PRODUCT_LIST.split(', '),
     required: true,
   },
   lesson: {
