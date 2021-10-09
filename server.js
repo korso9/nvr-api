@@ -8,6 +8,10 @@ dotenv.config({ path: './config/config.env' });
 // Connect to database
 connectDB();
 
+// Routes
+const scores = require('./routes/scores');
+const auth = require('./routes/auth');
+
 const app = express();
 
 const port = process.env.PORT || 5000;
