@@ -5,17 +5,17 @@ const router = express.Router();
 
 // get a specific user
 // will use select modifiers to get specific data
-router.get('/api/:userId', (req, res) => {
+router.get('/:userId', (req, res) => {
   res.status(200).json({ success: true });
 });
 
 // update a specific user
-router.put('/api/:userId', (req, res) => {
+router.put('/:userId', (req, res) => {
   res.status(200).json({ success: true });
 });
 
 // register a new user
-router.post('/api', (req, res) => {
+router.post('/', (req, res) => {
   res.status(200).json({ success: true });
 });
 

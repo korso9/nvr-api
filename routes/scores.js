@@ -4,17 +4,17 @@ const Score = require('../models/Score');
 const router = express.Router();
 
 // get an existing lesson score
-router.get('/api/:userId/scores/:product/:scoreId', (req, res) => {
+router.get('/:product/:scoreId', (req, res) => {
   res.status(200).json({ success: true });
 });
 
 // update an existing lesson score
-router.put('/api/:userId/scores/:product/:scoreId', (req, res) => {
+router.put('/:product/:scoreId', (req, res) => {
   res.status(200).json({ success: true });
 });
 
 // create a new lesson score
-router.post('/api/:userId/scores', (req, res) => {
+router.post('/', (req, res) => {
   res.status(200).json({ success: true });
 });
 
