@@ -11,15 +11,15 @@ const UserSchema = new mongoose.Schema(
       ],
     },
     firstName: {
-      Type: String,
+      type: String,
       required: [true, 'Please add your first name'],
     },
     lastName: {
-      Type: String,
+      type: String,
       required: [true, 'Please add your last name'],
     },
     password: {
-      Type: String,
+      type: String,
       required: [true, 'Please add a password'],
       minlength: [8, 'Password must be between 8 and 12 characters'],
       maxlength: [12, 'Password must be between 8 and 12 characters'],
