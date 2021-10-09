@@ -11,17 +11,17 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
   highestScore: {
-    type: Decimal,
+    type: Number,
     min: 0,
     max: 100,
   },
   score1: {
-    type: Decimal,
+    type: Number,
     min: 0,
     max: 100,
   },
   score2: {
-    type: Decimal,
+    type: Number,
     min: 0,
     max: 100,
   },
