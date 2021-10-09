@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
+const ScoreSchema = new mongoose.Schema({
   product: {
     type: String,
     enum: process.env.PRODUCT_LIST.split(', '),
