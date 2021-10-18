@@ -17,6 +17,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Routes
 app.use(require('./routes'));
 
