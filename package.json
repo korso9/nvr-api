@@ -4,7 +4,7 @@
   "description": "Backend API for Neurologica VR website and unity applications",
   "main": "server.js",
   "scripts": {
-    "start": "SET NODE_ENV=production&& node server",
+    "start": "NODE_ENV=production node server",
     "dev": "nodemon server"
   },
   "author": "Ken Orsini",
