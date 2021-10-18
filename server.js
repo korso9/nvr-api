@@ -3,6 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
 const connectDB = require('./config/db');
+const { verifyEmail, scoreEmail } = require('./utils/email');
 
 // Load env vars
 dotenv.config({ path: './config/config.env' });
@@ -26,8 +27,10 @@ app.use(require('./routes'));
 // Set port
 const port = process.env.PORT || 5000;
 
+
 // Start server
 const server = app.listen(
   port,
   console.log(`Server running in ${process.env.NODE_ENV} on port ${port}...`)
 );
+
