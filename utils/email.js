@@ -2,7 +2,7 @@ const mailgun = require('../config/email');
 
 const verifyEmail = async (emailAddress, firstName, code) => {
   const mailgunData = {
-    from: 'Neurologica VR',
+    from: 'Neurologica VR <noreply@neurologicavr.com>',
     to: emailAddress,
     subject: 'Your email verification code',
     html: '<h1> Verification Email </h1>'
@@ -17,10 +17,9 @@ const verifyEmail = async (emailAddress, firstName, code) => {
 
 const scoreEmail = async (emailAddress, firstName, score) => {
   const mailgunData = {
-    from: 'Neurologica VR',
+    from: 'Neurologica VR <noreply@neurologicavr.com>',
     to: emailAddress,
     subject: 'Quiz Results',
-    template: 'quiz-results-template',
     html: '<h1> Score Email </h1>'
   };
 
