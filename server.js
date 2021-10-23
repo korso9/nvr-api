@@ -3,7 +3,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
 const connectDB = require('./config/db');
-const { verifyEmail, scoreEmail } = require('./utils/email');
 
 // Load env vars
 dotenv.config({ path: './config/config.env' });

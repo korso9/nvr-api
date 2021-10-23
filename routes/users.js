@@ -2,11 +2,23 @@ const express = require('express');
 
 const router = express.Router();
 
-// router.post('/login', login);
-// router.post('/register', register);
-// router.post('/forgot', forgotPassword);
-// router.get('/verify', verifyEmail);
-// router.put('/reset/:confirmationCode', resetPassword);
-// router.get('/logout', logout);
+const {
+  verifyEmail,
+  register,
+  forgotPassword,
+  confirmEmail,
+  confirmReset,
+  resetPassword,
+  login,
+  logout,
+} = require('../controllers/users');
+
+router.post('/register', [register, verifyEmail]);
+router.post('/forgot', [forgotPassword, verifyEmail]);
+router.put('/confirm/:id', confirmEmail);
+router.put('/reset/:id', confirmReset);
+router.put('/setnewpw/:id', resetPassword);
+router.post('/login', login);
+router.get('/logout', logout);
 
 module.exports = router;
