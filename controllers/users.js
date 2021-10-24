@@ -57,6 +57,10 @@ const confirmEmail = async (req, res, next) => {
   // find user by passed in user id
   const user = await User.findById(req.params.id);
 
+  // If no verification code stored, return unauthorized
+  if (user.verificationCode === null)
+    res.status(401).json({ success: false, msg: 'Unauthorized' });
+
   // see if date is past verification expiry
   if (Date.now() > user.verificationExpire) {
     user.verificationCode = null;
@@ -93,6 +97,10 @@ const resetPassword = async (req, res, next) => {
 
   // find user by passed in user id
   const user = await User.findById(req.params.id);
+
+  // If no verification code stored, return unauthorized
+  if (user.verificationCode === null)
+    res.status(401).json({ success: false, msg: 'Unauthorized' });
 
   // see if date is past verification expiry
   if (Date.now() > user.verificationExpire) {
