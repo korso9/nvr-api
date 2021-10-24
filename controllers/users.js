@@ -23,7 +23,7 @@ const verifyEmail = async (req, res, next) => {
     res.status(successCode).json({ success: true, data: user });
     // else return status code and redirect to email confirmation
   } else {
-    if (req.url === '/register')
+    if (req.url === '/register' || req.url === '/login')
       res.redirect(successCode, `/confirm/${user.id}`);
     else if (req.url === '/forgot')
       res.redirect(successCode, `/reset/${user.id}`);
@@ -51,15 +51,20 @@ const register = async (req, res, next) => {
 };
 
 const confirmEmail = async (req, res, next) => {
-  const verificationCode = req.body.verificationCode;
+  // store verification code from request body
+  const { verificationCode } = req.body;
 
+  // find user by passed in user id
   const user = await User.findById(req.params.id);
 
+  // see if date is past verification expiry
   if (Date.now() > user.verificationExpire) {
     user.verificationCode = null;
     user.verificationExpire = null;
     await user.save();
     res.status(401).json({ success: false, msg: 'Code Expired' });
+
+    // if verification code matches
   } else if (await user.matchVerificationCode(verificationCode)) {
     user.emailConfirmed = true;
     user.verificationCode = null;
@@ -72,75 +77,106 @@ const confirmEmail = async (req, res, next) => {
 };
 
 const forgotPassword = async (req, res, next) => {
-  // // set variables from input fields
-  // const { emailAddress } = req.body;
-  // // find user with entered data
-  // const user = await User.findOne({ emailAddress });
-  // // set request body to new user
-  // req.body = user;
-  // // call next
-  // next();
-};
-
-const confirmReset = async (req, res, next) => {
-  // const verificationCode = req.body.verificationCode;
-  // const user = await User.findById(req.params.id);
-  // if (Date.now() > user.verificationExpire) {
-  //   user.verificationCode = null;
-  //   user.verificationExpire = null;
-  //   await user.save();
-  //   res.status(401).json({ success: false, msg: 'Code Expired' });
-  // } else if (await user.matchVerificationCode(verificationCode)) {
-  //   user.resetConfirmed = true;
-  //   user.verificationCode = null;
-  //   user.verificationExpire = null;
-  //   await user.save();
-  //   res.status(201).json({ success: true, data: user });
-  // } else {
-  //   res.status(401).json({ success: false, msg: 'Unauthorized' });
-  // }
+  // set variables from input fields
+  const { emailAddress } = req.body;
+  // find user with entered data
+  const user = await User.findOne({ emailAddress });
+  // set request body to new user
+  req.body = user;
+  // call next
+  next();
 };
 
 const resetPassword = async (req, res, next) => {
-  // const newPassword = req.body.password;
-  // const user = await User.findById(req.params.id);
-  // if (user.resetConfirmed) {
-  //   user.password = newPassword;
-  //   user.resetConfirmed = true;
-  //   await user.save();
-  //   res.status(201).json({ success: true, data: user });
-  // } else {
-  //   res.status(401).json({ success: false, msg: 'Unauthorized' });
-  // }
+  // store verification code and new password from request body
+  const { verificationCode, newPassword } = req.body;
+
+  // find user by passed in user id
+  const user = await User.findById(req.params.id);
+
+  // see if date is past verification expiry
+  if (Date.now() > user.verificationExpire) {
+    user.verificationCode = null;
+    user.verificationExpire = null;
+    await user.save();
+    res.status(401).json({ success: false, msg: 'Code Expired' });
+
+    // if verification code matches
+  } else if (await user.matchVerificationCode(verificationCode)) {
+    user.password = newPassword;
+    user.verificationCode = null;
+    user.verificationExpire = null;
+    await user.save();
+    res.status(201).json({ success: true, data: user });
+  } else {
+    res.status(401).json({ success: false, msg: 'Unauthorized' });
+  }
 };
 
 const login = async (req, res, next) => {
-  // const { email, password } = req.body;
-  // if (!email || !password) {
-  //   res
-  //     .status(400)
-  //     .json({ success: false, msg: 'Please provide an email and password' });
-  // }
-  // const user = await User.findOne({ email }).select('+password');
-  // if (!user) {
-  //   res.status(401).json({ success: false, msg: 'Invalid Credentials' });
-  // }
-  // const isMatch = await user.matchPassword(password);
-  // if (!isMatch) {
-  //   res.status(401).json({ success: false, msg: 'Invalid Credentials' });
-  // } else {
-  //   res.status(200).json({ success: true, data: user });
-  // }
+  // store email and password from request body
+  const { email, password } = req.body;
+
+  // check if email and password are validated
+  if (!email || !password) {
+    res
+      .status(400)
+      .json({ success: false, msg: 'Please provide an email and password' });
+  }
+
+  // find user with entered email
+  const user = await User.findOne({ email }).select('+password');
+
+  // reject request if user doesn't exist
+  if (!user) {
+    res.status(401).json({ success: false, msg: 'Invalid Credentials' });
+  }
+
+  // check if password matches
+  const isMatch = await user.matchPassword(password);
+  // if the password matches
+  if (isMatch) {
+    // if email isn't confirmed reroute to verify email
+    if (user.emailConfirmed === false) next();
+    // if email is confirmed send JWT
+    else {
+      const token = user.JWT();
+      // if accessing from browser store token in cookies
+      if (req.header('user-agent') !== 'unity') {
+        res.cookie('token', token, {
+          expires:
+            Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000,
+          httpOnly: true,
+          secure: true,
+        });
+      }
+      // return success and token
+      res.status(200).json({ success: true, token });
+    }
+  } else {
+    res.status(401).json({ success: false, msg: 'Invalid Credentials' });
+  }
 };
 
-const logout = (req, res, next) => {};
+const logout = (req, res, next) => {
+  // force expire token
+  res.cookie('token', 'none', {
+    expires: Date.now() + 10 * 1000,
+    httpOnly: true,
+  });
+
+  // send success response
+  res.status(200).json({
+    success: true,
+    data: {},
+  });
+};
 
 module.exports = {
   verifyEmail,
   register,
-  forgotPassword,
   confirmEmail,
-  confirmReset,
+  forgotPassword,
   resetPassword,
   login,
   logout,

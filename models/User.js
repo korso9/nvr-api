@@ -37,10 +37,6 @@ const UserSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
-    resetConfirmed: {
-      type: Boolean,
-      default: false,
-    },
     emailConfirmed: {
       type: Boolean,
       default: false,
@@ -66,6 +62,13 @@ UserSchema.pre('save', async function (next) {
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });
+
+// Send signed JWT
+UserSchema.methods.JWT = function () {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRE,
+  });
+};
 
 // Test entered password to hashed password
 UserSchema.methods.matchPassword = async function (enteredPassword) {
