@@ -13,7 +13,7 @@ const {
 
 router.post('/register', [register, verifyEmail]);
 router.put('/confirm/:id', confirmEmail);
-router.post('/forgot', [forgotPassword, verifyEmail]);
+router.put('/forgot', [forgotPassword, verifyEmail]);
 router.put('/reset/:id', resetPassword);
 router.post('/login', [login, verifyEmail]);
 

@@ -49,6 +49,12 @@ const confirmEmail = async (req, res, next) => {
   // find user by passed in user id
   const user = await User.findById(req.params.id);
 
+  if (!user) {
+    res
+      .status(400)
+      .json({ success: false, msg: `No user found with id: ${req.params.id}` });
+  }
+
   // If no verification code stored, return unauthorized
   if (user.verificationCode === null)
     res.status(401).json({ success: false, msg: 'Unauthorized' });
@@ -92,6 +98,12 @@ const resetPassword = async (req, res, next) => {
 
   // find user by passed in user id
   const user = await User.findById(req.params.id);
+
+  if (!user) {
+    res
+      .status(400)
+      .json({ success: false, msg: `No user found with id: ${req.params.id}` });
+  }
 
   // If no verification code stored, return unauthorized
   if (user.verificationCode === null)
