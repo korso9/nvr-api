@@ -17,18 +17,10 @@ const verifyEmail = async (req, res, next) => {
   // send email with verification code
   await sendVerifyEmail(user.emailAddress, user.firstName, verificationCode);
 
-  // if user is accessing via unity
-  if (req.header('user-agent') === 'unity') {
-    // return success status code and user data
-    res.status(successCode).json({ success: true, data: user });
-    // else return status code and redirect to email confirmation
-  } else {
-    if (req.url === '/register' || req.url === '/login')
-      res.redirect(successCode, `/confirm/${user.id}`);
-    else if (req.url === '/forgot')
-      res.redirect(successCode, `/reset/${user.id}`);
-    else res.status(500).json({ success: false, msg: 'Server Error' });
-  }
+  // return success status code, user data, status message
+  res
+    .status(successCode)
+    .json({ success: true, data: user, msg: 'Verification Email Sent' });
 };
 
 const register = async (req, res, next) => {
@@ -83,10 +75,13 @@ const confirmEmail = async (req, res, next) => {
 const forgotPassword = async (req, res, next) => {
   // set variables from input fields
   const { emailAddress } = req.body;
+
   // find user with entered data
   const user = await User.findOne({ emailAddress });
+
   // set request body to new user
   req.body = user;
+
   // call next
   next();
 };
@@ -123,10 +118,10 @@ const resetPassword = async (req, res, next) => {
 
 const login = async (req, res, next) => {
   // store email and password from request body
-  const { email, password } = req.body;
+  const { emailAddress, password } = req.body;
 
   // check if email and password are validated
-  if (!email || !password) {
+  if (!emailAddress || !password) {
     res
       .status(400)
       .json({ success: false, msg: 'Please provide an email and password' });
@@ -142,42 +137,24 @@ const login = async (req, res, next) => {
 
   // check if password matches
   const isMatch = await user.matchPassword(password);
+
   // if the password matches
   if (isMatch) {
     // if email isn't confirmed reroute to verify email
-    if (user.emailConfirmed === false) next();
+    if (user.emailConfirmed === false) {
+      req.body = user;
+      next();
+    }
     // if email is confirmed send JWT
     else {
       const token = user.JWT();
-      // if accessing from browser store token in cookies
-      if (req.header('user-agent') !== 'unity') {
-        res.cookie('token', token, {
-          expires:
-            Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000,
-          httpOnly: true,
-          secure: true,
-        });
-      }
+
       // return success and token
       res.status(200).json({ success: true, token });
     }
   } else {
     res.status(401).json({ success: false, msg: 'Invalid Credentials' });
   }
-};
-
-const logout = (req, res, next) => {
-  // force expire token
-  res.cookie('token', 'none', {
-    expires: Date.now() + 10 * 1000,
-    httpOnly: true,
-  });
-
-  // send success response
-  res.status(200).json({
-    success: true,
-    data: {},
-  });
 };
 
 module.exports = {
@@ -187,5 +164,4 @@ module.exports = {
   forgotPassword,
   resetPassword,
   login,
-  logout,
 };

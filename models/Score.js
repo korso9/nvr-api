@@ -37,10 +37,6 @@ const ScoreSchema = new mongoose.Schema({
     max: 2,
     required: true,
   },
-  freeMode: {
-    type: Boolean,
-    default: false,
-  },
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
