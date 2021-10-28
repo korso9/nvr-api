@@ -66,7 +66,7 @@ const confirmEmail = async (req, res, next) => {
     user.verificationCode = null;
     user.verificationExpire = null;
     await user.save();
-    res.status(201).json({ success: true, data: user });
+    res.status(200).json({ success: true, data: user });
   } else {
     res.status(401).json({ success: false, msg: 'Unauthorized' });
   }
@@ -110,7 +110,7 @@ const resetPassword = async (req, res, next) => {
     user.verificationCode = null;
     user.verificationExpire = null;
     await user.save();
-    res.status(201).json({ success: true, data: user });
+    res.status(200).json({ success: true, data: user });
   } else {
     res.status(401).json({ success: false, msg: 'Unauthorized' });
   }
@@ -128,7 +128,7 @@ const login = async (req, res, next) => {
   }
 
   // find user with entered email
-  const user = await User.findOne({ email }).select('+password');
+  const user = await User.findOne({ emailAddress }).select('+password');
 
   // reject request if user doesn't exist
   if (!user) {
