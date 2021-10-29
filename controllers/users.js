@@ -72,7 +72,7 @@ const confirmEmail = async (req, res, next) => {
     user.verificationCode = null;
     user.verificationExpire = null;
     await user.save();
-    res.status(200).json({ success: true, data: user });
+    res.status(200).json({ success: true, data: user, msg: 'Email Confirmed' });
   } else {
     res.status(401).json({ success: false, msg: 'Unauthorized' });
   }
@@ -122,7 +122,7 @@ const resetPassword = async (req, res, next) => {
     user.verificationCode = null;
     user.verificationExpire = null;
     await user.save();
-    res.status(200).json({ success: true, data: user });
+    res.status(200).json({ success: true, data: user, msg: 'Password Reset' });
   } else {
     res.status(401).json({ success: false, msg: 'Unauthorized' });
   }
@@ -154,6 +154,7 @@ const login = async (req, res, next) => {
   if (isMatch) {
     // if email isn't confirmed reroute to verify email
     if (user.emailConfirmed === false) {
+      user.select('-password');
       req.body = user;
       next();
     }
@@ -162,7 +163,7 @@ const login = async (req, res, next) => {
       const token = user.JWT();
 
       // return success and token
-      res.status(200).json({ success: true, token });
+      res.status(200).json({ success: true, token, msg: 'Successful Login' });
     }
   } else {
     res.status(401).json({ success: false, msg: 'Invalid Credentials' });
