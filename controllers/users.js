@@ -154,7 +154,7 @@ const login = async (req, res, next) => {
   if (isMatch) {
     // if email isn't confirmed reroute to verify email
     if (user.emailConfirmed === false) {
-      user.select('-password');
+      user = await User.findOne({ emailAddress });
       req.body = user;
       next();
     }
