@@ -5,8 +5,23 @@ const verifyEmail = async (req, res, next) => {
   // set success status code based on registration or password reset
   const successCode = req.originalUrl === '/register' ? 201 : 200;
 
-  // set user sent from request body
-  const user = req.body;
+  // Declare user variable
+  let user;
+
+  // If request for code resend
+  if (req.originalUrl === '/resend/:id') {
+    // find user by request parameter id
+    user = await User.findOne(req.params.id);
+    // if verification code is null, verification was never initialized
+    if (user.verificationCode === null) {
+      res
+        .status(400)
+        .json({ success: false, msg: 'Verification not initialized' });
+    }
+  } else {
+    // store user from request body
+    user = req.body;
+  }
 
   // generate email verification code
   const verificationCode = await user.getVerificationCode();
@@ -20,7 +35,7 @@ const verifyEmail = async (req, res, next) => {
   // return success status code, user data, status message
   res
     .status(successCode)
-    .json({ success: true, data: user, msg: 'Verification Email Sent' });
+    .json({ success: true, data: user, msg: 'Verification email sent' });
 };
 
 const register = async (req, res, next) => {
@@ -57,14 +72,16 @@ const confirmEmail = async (req, res, next) => {
 
   // If no verification code stored, return unauthorized
   if (user.verificationCode === null)
-    res.status(401).json({ success: false, msg: 'Unauthorized' });
+    res
+      .status(401)
+      .json({ success: false, msg: 'Please enter a verification code' });
 
   // see if date is past verification expiry
   if (Date.now() > user.verificationExpire) {
     user.verificationCode = null;
     user.verificationExpire = null;
     await user.save();
-    res.status(401).json({ success: false, msg: 'Code Expired' });
+    res.status(401).json({ success: false, msg: 'Code expired' });
 
     // if verification code matches
   } else if (await user.matchVerificationCode(verificationCode)) {
@@ -72,9 +89,9 @@ const confirmEmail = async (req, res, next) => {
     user.verificationCode = null;
     user.verificationExpire = null;
     await user.save();
-    res.status(200).json({ success: true, data: user, msg: 'Email Confirmed' });
+    res.status(200).json({ success: true, data: user, msg: 'Email confirmed' });
   } else {
-    res.status(401).json({ success: false, msg: 'Unauthorized' });
+    res.status(401).json({ success: false, msg: 'Invalid code' });
   }
 };
 
@@ -107,14 +124,16 @@ const resetPassword = async (req, res, next) => {
 
   // If no verification code stored, return unauthorized
   if (user.verificationCode === null)
-    res.status(401).json({ success: false, msg: 'Unauthorized' });
+    res
+      .status(401)
+      .json({ success: false, msg: 'Please enter a verification code' });
 
   // see if date is past verification expiry
   if (Date.now() > user.verificationExpire) {
     user.verificationCode = null;
     user.verificationExpire = null;
     await user.save();
-    res.status(401).json({ success: false, msg: 'Code Expired' });
+    res.status(401).json({ success: false, msg: 'Code expired' });
 
     // if verification code matches
   } else if (await user.matchVerificationCode(verificationCode)) {
@@ -122,9 +141,9 @@ const resetPassword = async (req, res, next) => {
     user.verificationCode = null;
     user.verificationExpire = null;
     await user.save();
-    res.status(200).json({ success: true, data: user, msg: 'Password Reset' });
+    res.status(200).json({ success: true, data: user, msg: 'Password reset' });
   } else {
-    res.status(401).json({ success: false, msg: 'Unauthorized' });
+    res.status(401).json({ success: false, msg: 'Invalid code' });
   }
 };
 
@@ -144,7 +163,7 @@ const login = async (req, res, next) => {
 
   // reject request if user doesn't exist
   if (!user) {
-    res.status(401).json({ success: false, msg: 'Invalid Credentials' });
+    res.status(401).json({ success: false, msg: 'Invalid credentials' });
   }
 
   // check if password matches
@@ -162,10 +181,10 @@ const login = async (req, res, next) => {
       const token = user.JWT();
 
       // return success and token
-      res.status(200).json({ success: true, token, msg: 'Successful Login' });
+      res.status(200).json({ success: true, token, msg: 'Successful login' });
     }
   } else {
-    res.status(401).json({ success: false, msg: 'Invalid Credentials' });
+    res.status(401).json({ success: false, msg: 'Invalid credentials' });
   }
 };
 
