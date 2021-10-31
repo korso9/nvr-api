@@ -3,15 +3,22 @@ const User = require('../models/User');
 
 const verifyEmail = async (req, res, next) => {
   // set success status code based on registration or password reset
-  const successCode = req.originalUrl === '/register' ? 201 : 200;
+  const successCode = req.url === '/register' ? 201 : 200;
 
   // Declare user variable
   let user;
 
   // If request for code resend
-  if (req.originalUrl === '/resend/:id') {
+  if (req.url.includes('/resend')) {
     // find user by request parameter id
-    user = await User.findOne(req.params.id);
+    user = await User.findById(req.params.id);
+    // if no user is found
+    if (!user) {
+      res.status(400).json({
+        success: false,
+        msg: `No user found with id: ${req.params.id}`,
+      });
+    }
     // if verification code is null, verification was never initialized
     if (user.verificationCode === null) {
       res
@@ -64,6 +71,7 @@ const confirmEmail = async (req, res, next) => {
   // find user by passed in user id
   const user = await User.findById(req.params.id);
 
+  // if no user is found
   if (!user) {
     res
       .status(400)
@@ -116,6 +124,7 @@ const resetPassword = async (req, res, next) => {
   // find user by passed in user id
   const user = await User.findById(req.params.id);
 
+  // if no user is found
   if (!user) {
     res
       .status(400)
