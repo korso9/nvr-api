@@ -140,7 +140,7 @@ const login = async (req, res, next) => {
   }
 
   // find user with entered email
-  const user = await User.findOne({ emailAddress }).select('+password');
+  let user = await User.findOne({ emailAddress }).select('+password');
 
   // reject request if user doesn't exist
   if (!user) {
@@ -154,7 +154,6 @@ const login = async (req, res, next) => {
   if (isMatch) {
     // if email isn't confirmed reroute to verify email
     if (user.emailConfirmed === false) {
-      user = await User.findOne({ emailAddress });
       req.body = user;
       next();
     }
