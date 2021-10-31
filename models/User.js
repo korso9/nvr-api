@@ -85,7 +85,7 @@ UserSchema.methods.getVerificationCode = async function () {
   this.verificationCode = await bcrypt.hash(code, salt);
 
   // Set verificaiton code to expire in 60 minutes
-  this.verificationExpire = Date.now() + 60 * 60 * 1000;
+  this.verificationExpire = new Date(Date.now() + 60 * 60 * 1000);
 
   // return verification code
   return code;
