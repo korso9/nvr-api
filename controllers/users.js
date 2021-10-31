@@ -1,5 +1,6 @@
 const { sendVerifyEmail } = require('../utils/email');
 const User = require('../models/User');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 const verifyEmail = async (req, res, next) => {
   // set success status code based on registration or password reset
@@ -10,18 +11,25 @@ const verifyEmail = async (req, res, next) => {
 
   // If request for code resend
   if (req.url.includes('/resend')) {
+    // Check for valid ID
+    if (!isValidObjectId(req.params.id)) {
+      return res.status(400).json({
+        success: false,
+        msg: `Invalid user ID`,
+      });
+    }
     // find user by request parameter id
     user = await User.findById(req.params.id);
     // if no user is found
     if (!user) {
-      res.status(400).json({
+      return res.status(400).json({
         success: false,
         msg: `No user found with id: ${req.params.id}`,
       });
     }
     // if verification code is null, verification was never initialized
     if (user.verificationCode === null) {
-      res
+      return res
         .status(400)
         .json({ success: false, msg: 'Verification not initialized' });
     }
@@ -68,19 +76,27 @@ const confirmEmail = async (req, res, next) => {
   // store verification code from request body
   const { verificationCode } = req.body;
 
+  // Check for valid ID
+  if (!isValidObjectId(req.params.id)) {
+    return res.status(400).json({
+      success: false,
+      msg: `Invalid user ID`,
+    });
+  }
+
   // find user by passed in user id
   const user = await User.findById(req.params.id);
 
   // if no user is found
   if (!user) {
-    res
+    return res
       .status(400)
       .json({ success: false, msg: `No user found with id: ${req.params.id}` });
   }
 
   // If no verification code stored, return unauthorized
   if (user.verificationCode === null)
-    res
+    return res
       .status(401)
       .json({ success: false, msg: 'Please enter a verification code' });
 
@@ -121,19 +137,27 @@ const resetPassword = async (req, res, next) => {
   // store verification code and new password from request body
   const { verificationCode, newPassword } = req.body;
 
+  // Check for valid ID
+  if (!isValidObjectId(req.params.id)) {
+    return res.status(400).json({
+      success: false,
+      msg: `Invalid user ID`,
+    });
+  }
+
   // find user by passed in user id
   const user = await User.findById(req.params.id);
 
   // if no user is found
   if (!user) {
-    res
+    return res
       .status(400)
       .json({ success: false, msg: `No user found with id: ${req.params.id}` });
   }
 
   // If no verification code stored, return unauthorized
   if (user.verificationCode === null)
-    res
+    return res
       .status(401)
       .json({ success: false, msg: 'Please enter a verification code' });
 
@@ -162,7 +186,7 @@ const login = async (req, res, next) => {
 
   // check if email and password are validated
   if (!emailAddress || !password) {
-    res
+    return res
       .status(400)
       .json({ success: false, msg: 'Please provide an email and password' });
   }
@@ -172,7 +196,7 @@ const login = async (req, res, next) => {
 
   // reject request if user doesn't exist
   if (!user) {
-    res.status(401).json({ success: false, msg: 'Invalid credentials' });
+    return res.status(401).json({ success: false, msg: 'Invalid credentials' });
   }
 
   // check if password matches
@@ -195,6 +219,14 @@ const login = async (req, res, next) => {
   } else {
     res.status(401).json({ success: false, msg: 'Invalid credentials' });
   }
+};
+
+const isValidObjectId = (id) => {
+  if (ObjectId.isValid(id)) {
+    if (String(new ObjectId(id)) === id) return true;
+    return false;
+  }
+  return false;
 };
 
 module.exports = {
