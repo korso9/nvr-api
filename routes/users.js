@@ -16,6 +16,6 @@ router.put('/confirm/:id', confirmEmail);
 router.put('/forgot', [forgotPassword, verifyEmail]);
 router.put('/reset/:id', resetPassword);
 router.post('/login', [login, verifyEmail]);
-router.put('/resend/:id', verifyEmail);
+router.get('/resend/:id', verifyEmail);
 
 module.exports = router;
