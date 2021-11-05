@@ -26,10 +26,8 @@ app.use(require('./routes'));
 // Set port
 const port = process.env.PORT || 5000;
 
-
 // Start server
 const server = app.listen(
   port,
   console.log(`Server running in ${process.env.NODE_ENV} on port ${port}...`)
 );
-
