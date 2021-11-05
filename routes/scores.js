@@ -1,17 +1,10 @@
 const express = require('express');
-
 const router = express.Router();
+const { createNewScore, getScore, addScore } = require('../controllers/scores');
+const protect = require('../middleware/auth');
 
-const {
-  createNewScore,
-  getScore,
-  addScore,
-  unlockScore,
-} = require('../controllers/scores');
-
-router.post('/', createNewScore);
-router.get('/:product/:lesson', getScore);
-router.put('/:product/:lesson', addScore);
-router.put('/:product/:lesson', unlockScore);
+router.post('/', [protect, createNewScore]);
+router.get('/:product/:lesson', [protect, getScore]);
+router.put('/:product/:lesson', [protect, addScore]);
 
 module.exports = router;
