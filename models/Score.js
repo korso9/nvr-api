@@ -32,8 +32,8 @@ const ScoreSchema = new mongoose.Schema({
   },
   attempts: {
     type: Number,
-    default: 0,
-    min: 0,
+    default: 1,
+    min: 1,
     max: 2,
     required: true,
   },
@@ -42,6 +42,20 @@ const ScoreSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
+});
+
+// Update average score on save
+ScoreSchema.pre('save', async function (next) {
+  // if the score is new, average score = first score
+  if (this.isNew()) {
+    this.averageScore = this.score1;
+    next();
+    // else update average score and increment attempts
+  } else {
+    this.averageScore = Math.round((this.score1 + this.score2) / 2);
+    this.attempts += 1;
+    next();
+  }
 });
 
 module.exports = mongoose.model('Score', ScoreSchema);
