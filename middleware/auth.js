@@ -11,7 +11,7 @@ exports.protect = async (req, res, next) => {
     // remove Bearer from token
     token = token.split(' ')[1];
     // verify token
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
       // if error verifying, return unauthorized
       if (err)
         return res.status(401).json({ success: false, msg: 'Invalid token' });
