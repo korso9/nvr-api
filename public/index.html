@@ -1,12 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neurologica VR</title>
-</head>
-<body>
-  <h1>Coming Soon...</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Neurologica VR - Home</title>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-md navbar-light bg-white mb-3">
+      <div class="container">
+        <a class="navbar-brand" href="./">
+          <img src="img/logo-transparent.png" width="100" height="100" alt="" />
+          <h2 class="h1 d-inline align-middle">Neurologica VR</h2></a
+        >
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./"">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-block">
+              <a class="nav-link" href="./download.html">Download</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./docs.html">Docs</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- APP JUMBO -->
+    <div class="container py-1">
+      <div
+        class="jumbotron text-white jumbotron-image shadow"
+        style="
+          background-size: cover;
+          background-image: url(https://images.unsplash.com/photo-1563192176-46820b40a0ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1546&q=80);
+        "
+      >
+        <h2 class="mb-4">Learn something new</h2>
+        <p class="mb-4">
+          The demo for Visualize Data Structures is now available
+        </p>
+        <a href="./download.html" class="btn btn-light">Download Here</a>
+      </div>
+    </div>
+
+    <!-- VDS CARDS -->
+    <div class="container py-1">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Visualize Data Structures</h2>
+          <p class="card-text">
+            Learn the basics of data structures and algorithms through an
+            entertaining VR experience
+          </p>
+          <div class="card-deck">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="./img/login.gif"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Account Management</h5>
+                <p class="card-text">
+                  Create or login to your Neurologica VR account from within the
+                  VR application
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="./img/lessons.gif"
+                alt="Account login"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Lessons and Minigames</h5>
+                <p class="Demo lessons">
+                  Learn about data structures and algorithms through lessons and
+                  lesson minigames
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="./img/quiz.gif" alt="Quiz demo" />
+              <div class="card-body">
+                <h5 class="card-title">Quizzes</h5>
+                <p class="card-text">
+                  Test what you learned through lesson quizzes and get emailed
+                  your results
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- API JUMBO -->
+    <div class="container py-1">
+      <div
+        class="jumbotron text-white jumbotron-image shadow"
+        style="
+          background-size: cover;
+          background-image: url(https://images.unsplash.com/photo-1480843669328-3f7e37d196ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80);
+        "
+      >
+        <h2 class="mb-4">Check out our server app</h2>
+        <a
+          href="https://github.com/orsoknows/nvr-api"
+          class="btn btn-light mr-3"
+          ><i class="fab fa-github"></i> Github</a
+        >
+        <a href="./docs.html" class="btn btn-light"
+          ><i class="fas fa-book"></i> Docs</a
+        >
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="py-3 bg-white text-dark fixed-bottom">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col">
+            Neurologica VR &copy;
+            <span id="year"></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $('#year').text(new Date().getFullYear());
+    </script>
+  </body>
 </html>

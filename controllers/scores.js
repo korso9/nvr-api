@@ -1,12 +1,10 @@
 const { sendScoreEmail } = require('../utils/email');
 const Score = require('../models/Score');
 
-const createNewScore = () => {};
+const postScore = () => {};
 const getScore = () => {};
-const addScore = () => {};
 
 module.exports = {
-  createNewScore,
+  postScore,
   getScore,
-  addScore,
 };

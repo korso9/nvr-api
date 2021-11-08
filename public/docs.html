@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>API Docs</title>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-md navbar-light bg-white mb-3">
+      <div class="container">
+        <a class="navbar-brand" href="./">
+          <img src="img/logo-transparent.png" width="100" height="100" alt="" />
+          <h2 class="h1 d-inline align-middle">Neurologica VR</h2></a
+        >
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-block">
+              <a class="nav-link" href="./download.html">Download</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./docs.html">Docs</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- DOCS -->
+    <div class="container py-1">
+      <div class="container py-1">
+        <h1 class="mb-5">Backend API Docs</h1>
+        <h2>User Authentication</h2>
+        <p>All routes for user authentication</p>
+        <div class="d-block my-4">
+          <p class="lead d-inline text-warning font-weight-bold">POST</p>
+          <p class="lead d-inline">- Login</p>
+          <p class="m-1">Log the user in and return JSON Web Token</p>
+          <div class="p-3 m-2 mb-4 bg-light border">
+            <code class="text-dark"
+              >https://www.neurologicavr.com/api/users/login</code
+            >
+          </div>
+
+          <div class="container">
+            <p class="d-inline font-weight-bold">BODY</p>
+            <p class="d-inline">- JSON</p>
+            <div class="p-3 my-2 bg-light border">
+              <code class="text-dark"
+                >{ "emailAddress": "", "password": "" }</code
+              >
+            </div>
+          </div>
+        </div>
+        <hr class="my-5" />
+
+        <div class="d-block my-4">
+          <p class="lead d-inline text-warning font-weight-bold">POST</p>
+          <p class="lead d-inline">- Register</p>
+          <p class="m-1">Register a new user</p>
+          <div class="p-3 m-2 mb-4 bg-light border">
+            <code class="text-dark"
+              >https://www.neurologicavr.com/api/users/register/</code
+            >
+          </div>
+
+          <div class="container">
+            <p class="d-inline font-weight-bold">BODY</p>
+            <p class="d-inline">- JSON</p>
+            <div class="p-3 my-2 bg-light border">
+              <code class="text-dark"
+                >{ "emailAddress": "", "firstName": "", "lastName": "",
+                "password": "" }</code
+              >
+            </div>
+          </div>
+        </div>
+        <hr class="my-5" />
+
+        <div class="d-block my-4">
+          <p class="lead d-inline text-primary font-weight-bold">PUT</p>
+          <p class="lead d-inline">- Confirm Email</p>
+          <p class="m-1">Confirm user email</p>
+          <div class="p-3 my-2 mb-4 bg-light border">
+            <code class="text-dark"
+              >https://www.neurologicavr.com/api/users/confirm/:id</code
+            >
+          </div>
+
+          <div class="container mb-4">
+            <p class="font-weight-bold">PATH PARAMS</p>
+            <p class="d-inline font-weight-bold">id</p>
+            <p class="d-inline">- User's account id</p>
+          </div>
+
+          <div class="container">
+            <p class="d-inline font-weight-bold">BODY</p>
+            <p class="d-inline">- JSON</p>
+            <div class="p-3 my-2 bg-light border">
+              <code class="text-dark">{ "verificationCode": "" }</code>
+            </div>
+          </div>
+        </div>
+        <hr class="my-5" />
+
+        <div class="d-block my-4">
+          <p class="lead d-inline text-primary font-weight-bold">PUT</p>
+          <p class="lead d-inline">- Forgot Password</p>
+          <p class="m-1">Request to initiate password reset</p>
+          <div class="p-3 m-2 mb-4 bg-light border">
+            <code class="text-dark"
+              >https://www.neurologicavr.com/api/users/forgot</code
+            >
+          </div>
+
+          <div class="container">
+            <p class="d-inline font-weight-bold">BODY</p>
+            <p class="d-inline">- JSON</p>
+            <div class="p-3 my-2 bg-light border">
+              <code class="text-dark">{ "emailAddress": "" }</code>
+            </div>
+          </div>
+        </div>
+        <hr class="my-5" />
+
+        <div class="d-block my-4">
+          <p class="lead d-inline text-primary font-weight-bold">PUT</p>
+          <p class="lead d-inline">- Reset Password</p>
+          <p class="m-1">Reset user password</p>
+          <div class="p-3 m-2 mb-4 bg-light border">
+            <code class="text-dark"
+              >https://www.neurologicavr.com/api/users/reset/:id</code
+            >
+          </div>
+
+          <div class="container mb-4">
+            <p class="font-weight-bold">PATH PARAMS</p>
+            <p class="d-inline font-weight-bold">id</p>
+            <p class="d-inline">- User's account id</p>
+          </div>
+
+          <div class="container">
+            <p class="d-inline font-weight-bold">BODY</p>
+            <p class="d-inline">- JSON</p>
+            <div class="p-3 my-2 bg-light border">
+              <code class="text-dark"
+                >{ "verificationCode": "", "newPassword": "" }</code
+              >
+            </div>
+          </div>
+        </div>
+        <hr class="my-5" />
+
+        <div class="d-block my-4">
+          <p class="lead d-inline text-success font-weight-bold">GET</p>
+          <p class="lead d-inline">- Resend Verification Code</p>
+          <p class="m-1">Reset and send new verification code</p>
+          <div class="p-3 m-2 mb-4 bg-light border">
+            <code class="text-dark"
+              >https://www.neurologicavr.com/api/users/resend/:id</code
+            >
+          </div>
+
+          <div class="container">
+            <p class="font-weight-bold">PATH PARAMS</p>
+            <p class="d-inline font-weight-bold">id</p>
+            <p class="d-inline">- User's account id</p>
+          </div>
+        </div>
+        <hr class="my-5" />
+
+        <h2>Scores</h2>
+        <p>All routes for user quiz scores</p>
+        <div class="d-block my-4">
+          <p class="lead d-inline text-warning font-weight-bold">POST</p>
+          <p class="lead d-inline">- Post New Score</p>
+          <p class="m-1">Add a new score for a specific product and lesson</p>
+          <div class="p-3 m-2 mb-4 bg-light border">
+            <code class="text-dark"
+              >https://www.neurologicavr.com/api/scores</code
+            >
+          </div>
+
+          <div class="container mb-4">
+            <p class="d-inline font-weight-bold">AUTHORIZATION</p>
+            <p class="d-inline">- Bearer Token</p>
+          </div>
+
+          <div class="container">
+            <p class="d-inline font-weight-bold">BODY</p>
+            <p class="d-inline">- JSON</p>
+            <div class="p-3 my-2 bg-light border">
+              <code class="text-dark"
+                >{ "product": "", "lesson": "", "newScore": "" }</code
+              >
+            </div>
+          </div>
+        </div>
+        <hr class="my-5" />
+
+        <div class="d-block my-4">
+          <p class="lead d-inline text-success font-weight-bold">GET</p>
+          <p class="lead d-inline">- Get Score</p>
+          <p class="m-1">Get the score of a specific lesson</p>
+          <div class="p-3 m-2 mb-4 bg-light border">
+            <code class="text-dark"
+              >https://www.neurologicavr.com/api/scores/:product/:lesson</code
+            >
+          </div>
+
+          <div class="container mb-4">
+            <p class="d-inline font-weight-bold">AUTHORIZATION</p>
+            <p class="d-inline">- Bearer Token</p>
+          </div>
+
+          <div class="container mb-4">
+            <p class="font-weight-bold">PATH PARAMS</p>
+            <p class="d-inline font-weight-bold">product</p>
+            <p class="d-inline">- Product as string (e.g. 'vds')</p>
+            <br class="mb-3" />
+            <p class="d-inline font-weight-bold">lesson</p>
+            <p class="d-inline">- Lesson number</p>
+          </div>
+        </div>
+        <hr class="my-5" />
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="py-3 bg-white text-dark fixed-bottom">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col">
+            Neurologica VR &copy;
+            <span id="year"></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $('#year').text(new Date().getFullYear());
+    </script>
+  </body>
+</html>
