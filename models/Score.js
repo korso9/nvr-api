@@ -44,15 +44,17 @@ const ScoreSchema = new mongoose.Schema({
   },
 });
 
-// Update average score on save
+// Update average score and highest score on save
 ScoreSchema.pre('save', async function (next) {
   // if the score is new, average score = first score
-  if (this.isNew()) {
+  if (this.isNew) {
     this.averageScore = this.score1;
+    this.highestScore = this.score1;
     next();
     // else update average score and increment attempts
   } else {
     this.averageScore = Math.round((this.score1 + this.score2) / 2);
+    this.highestScore = this.score2 > this.score1 ? this.score2 : this.score1;
     this.attempts += 1;
     next();
   }

@@ -20,12 +20,26 @@ const sendVerifyEmail = async (emailAddress, firstName, code) => {
   }
 };
 
-const sendScoreEmail = async (emailAddress, firstName, score) => {
+const sendScoreEmail = async (
+  emailAddress,
+  firstName,
+  product,
+  lesson,
+  attempts,
+  score,
+  highestScore,
+  averageScore
+) => {
   const mailgunData = {
     from: 'Neurologica VR <noreply@neurologicavr.com>',
     to: emailAddress,
     subject: 'Quiz Results',
-    html: '<h1> Score Email </h1>',
+    html: `<h1>Hello ${firstName}</h1>
+      <h2>Latest quiz results for ${product}: lesson ${lesson}</h2>
+			<p>Attempts: ${attempts} of 2</p><br>
+			Latest Score: ${score}</p><br>
+			Highest Score: ${highestScore}</p><br>
+			Average Score: ${averageScore}</p>`,
   };
 
   try {
