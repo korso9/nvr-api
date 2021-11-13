@@ -25,6 +25,16 @@ app.use(express.urlencoded({ extended: true }));
 
 // Security middleware
 app.use(cors());
+app.use(hpp());
+app.use(mongoSanitize());
+app.use(xss());
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+});
+app.use('/api/', apiLimiter);
+
 app.use(helmet());
 app.use(
   helmet.contentSecurityPolicy({
@@ -41,14 +51,6 @@ app.use(
     reportOnly: false,
   })
 );
-app.use(hpp());
-app.use(mongoSanitize());
-app.use(xss());
-const limiter = rateLimit({
-  windowMs: 10 * 60 * 1000,
-  max: 100,
-});
-app.use(limiter);
 
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')));
