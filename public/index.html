@@ -41,9 +41,6 @@
             <li class="nav-item">
               <a class="nav-link" href="./"">Home</a>
             </li>
-            <li class="nav-item d-none d-sm-block">
-              <a class="nav-link" href="./download.html">Download</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="./docs.html">Docs</a>
             </li>
@@ -53,7 +50,7 @@
     </nav>
 
     <!-- APP JUMBO -->
-    <div class="container py-1">
+    <div class="container">
       <div
         class="jumbotron text-white jumbotron-image shadow"
         style="
@@ -63,9 +60,8 @@
       >
         <h2 class="mb-4">Learn something new</h2>
         <p class="mb-4">
-          The demo for Visualize Data Structures is now available
+          Visualize Data Structures will be our first VR application, teaching lessons about data structures and algorithms
         </p>
-        <a href="./download.html" class="btn btn-light d-none d-sm-inline">Download Here</a>
       </div>
     </div>
 
@@ -73,52 +69,136 @@
     <div class="container py-1">
       <div class="card mb-4">
         <div class="card-body">
-          <h2 class="card-title">Visualize Data Structures</h2>
-          <p class="card-text">
-            Learn the basics of data structures and algorithms through an
-            entertaining VR experience
-          </p>
-          <div class="card-deck flex-sm-column flex-lg-row">
-            <div class="card mb-4 border border-dark">
-              <img
-                class="card-img-top"
-                src="./img/login.gif"
-                alt="Account login"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Account Management</h5>
-                <p class="card-text">
-                  Create or login to your Neurologica VR account from within the
-                  VR application
-                </p>
-              </div>
-            </div>
-            <div class="card mb-4 border border-dark">
-              <img
-                class="card-img-top"
-                src="./img/lessons.gif"
-                alt="Lesson demo"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Lessons and Minigames</h5>
-                <p class="Demo lessons">
-                  Learn about data structures and algorithms through lessons and
-                  lesson minigames
-                </p>
-              </div>
-            </div>
-            <div class="card mb-4 border border-dark">
-              <img class="card-img-top" src="./img/quiz.gif" alt="Quiz demo" />
-              <div class="card-body">
-                <h5 class="card-title">Quizzes</h5>
-                <p class="card-text">
-                  Test what you learned through lesson quizzes and get emailed
-                  your results
-                </p>
-              </div>
-            </div>
-          </div>
-					<hr class="my-4">
+          <h2 class="card-title mb-4 display-4">Visualize Data Structures</h2>
+					<ul class="list-group">
+						<li class="list-group-item my-2">
+							<h3 class="mb-3">Manage your account</h3>
+							<div class="card-deck d-flex flex-wrap flex-column flex-lg-row">
+								<div class="card mb-4">
+									<img
+										class="card-img-top"
+										src="./img/account_login.gif"
+										alt="Account Login"
+									/>
+									<div class="card-body">
+										<h5 class="card-title">Account Login</h5>
+									</div>
+								</div>
+								<div class="card mb-4">
+									<img
+										class="card-img-top"
+										src="./img/email_confirmation.gif"
+										alt="Email Confirmation"
+									/>
+									<div class="card-body">
+										<h5 class="card-title">Email Confirmation</h5>
+									</div>
+								</div>
+								<div class="card mb-4">
+									<img class="card-img-top" src="./img/password_reset.gif" alt="Password Reset" />
+									<div class="card-body">
+										<h5 class="card-title">Password Reset</h5>
+									</div>
+								</div>
+							</div>
+							<h4 class="my-3">Frontend form validation</h4>
+							<div class="card-deck flex-column flex-lg-row">
+								<div class="card mb-4">
+									<img
+										class="card-img-top"
+										src="./img/validation1.gif"
+										alt="Validation Example 1"
+									/>
+								</div>
+								<div class="card mb-4">
+									<img
+										class="card-img-top"
+										src="./img/validation2.gif"
+										alt="Validation Example 2"
+									/>
+								</div>
+								<div class="card mb-4">
+									<img class="card-img-top" src="./img/validation3.gif" alt="Validation Example 3" />
+								</div>
+							</div>
+						</li>
+						
+						<li class="list-group-item my-2 list-group-item-secondary">
+							<h3 class="mb-3">Explore the lab</h3>
+							<div class="card-deck flex-column flex-lg-row">
+								<div class="card mb-4">
+									<img
+										class="card-img-top"
+										src="./img/observatory.gif"
+										alt="Observatory"
+									/>
+									<div class="card-body">
+										<h5 class="card-title">Observatory</h5>
+									</div>
+								</div>
+								<div class="card mb-4">
+									<img
+										class="card-img-top"
+										src="./img/lobby1.gif"
+										alt="Lobby 1"
+									/>
+									<div class="card-body">
+										<h5 class="card-title">Lobby</h5>
+									</div>
+								</div>
+								<div class="card mb-4">
+									<img class="card-img-top" src="./img/lobby2.gif" alt="Lobby 2" />
+									<div class="card-body">
+										<h5 class="card-title">Furnishings</h5>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li class="list-group-item my-2">
+							<h3 class="mb-3">View lessons</h3>
+							<div class="card-deck flex-column flex-lg-row">
+								<div class="card mb-4">
+									<img
+										class="card-img-top"
+										src="./img/arrays1.gif"
+										alt="Arrays Lesson 1"
+									/>
+									<div class="card-body">
+										<h5 class="card-title">Lesson 1.1</h5>
+									</div>
+								</div>
+								<div class="card mb-4">
+									<img
+										class="card-img-top"
+										src="./img/arrays2.gif"
+										alt="Arrays Lesson 1"
+									/>
+									<div class="card-body">
+										<h5 class="card-title">Lesson 1.2</h5>
+									</div>
+								</div>
+								<div class="card mb-4">
+									<img class="card-img-top" src="./img/arrays3.gif" alt="Arrays Lesson 1" />
+									<div class="card-body">
+										<h5 class="card-title">Lesson 1.3</h5>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li class="list-group-item my-2 list-group-item-secondary">
+							<h3 class="mb-3">Take quizzes and get emailed your results</h3>
+							<div class="row">
+								<img src="./img/quiz.gif" class="col-12 col-lg-6">
+								</img>
+								<img src="./img/quiz_results.png" class="col-12 col-lg-6">
+								</img>
+							</div>
+						</li>
+					</ul>
+          
+					<hr class="my-2">
 					<h3 class="mb-4 text-center">Technologies Used</h3>
 					<div class="row">
 						<a href="https://unity.com/" target="_blank" rel="noopener noreferrer" class="col-6 col-md-3 btn btn-link text-secondary">
