@@ -26,6 +26,21 @@ app.use(express.urlencoded({ extended: true }));
 // Security middleware
 app.use(cors());
 app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      scriptSrc: [
+        "'self'",
+        'code.jquery.com',
+        'cdnjs.cloudflare.com',
+        'stackpath.bootstrapcdn.com',
+      ],
+      imgSrc: ["'self'", 'images.unsplash.com'],
+    },
+    reportOnly: false,
+  })
+);
 app.use(hpp());
 app.use(mongoSanitize());
 app.use(xss());
