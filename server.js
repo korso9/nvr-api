@@ -46,7 +46,7 @@ app.use(
         'cdnjs.cloudflare.com',
         'stackpath.bootstrapcdn.com',
       ],
-      imgSrc: ["'self'", 'images.unsplash.com'],
+      imgSrc: ["'self'", 'data:', 'images.unsplash.com'],
     },
     reportOnly: false,
   })
