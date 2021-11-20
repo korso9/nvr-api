@@ -19,7 +19,11 @@ const verifyEmail = async (req, res, next) => {
       });
     }
     // find user by request parameter id
-    user = await User.findById(req.params.id);
+    try {
+      user = await User.findById(req.params.id);
+    } catch (e) {
+      return res.status('400').json({ success: false, msg: e.message });
+    }
     // if no user is found
     if (!user) {
       return res.status(400).json({
@@ -57,13 +61,26 @@ const register = async (req, res, next) => {
   // set variables from input fields
   const { emailAddress, firstName, lastName, password } = req.body;
 
+  if (!isValidEmail(emailAddress))
+    return res.status('400').json({ success: false, msg: 'Invalid email' });
+  else if (!isValidPassword(password))
+    return res.status('400').json({
+      success: false,
+      msg: 'Password must be between 6 and 10 characters',
+    });
+
   // create new user with entered data
-  const user = await User.create({
-    emailAddress,
-    firstName,
-    lastName,
-    password,
-  });
+  let user;
+  try {
+    user = await User.create({
+      emailAddress,
+      firstName,
+      lastName,
+      password,
+    });
+  } catch (e) {
+    return res.status('400').json({ success: false, msg: e.message });
+  }
 
   // set request body to new user
   req.body = user;
@@ -85,7 +102,12 @@ const confirmEmail = async (req, res, next) => {
   }
 
   // find user by passed in user id
-  const user = await User.findById(req.params.id);
+  let user;
+  try {
+    user = await User.findById(req.params.id);
+  } catch (e) {
+    return res.status('400').json({ success: false, msg: e.message });
+  }
 
   // if no user is found
   if (!user) {
@@ -124,16 +146,19 @@ const forgotPassword = async (req, res, next) => {
   const { emailAddress } = req.body;
 
   // find user with entered data
-  const user = await User.findOne({ emailAddress });
+  let user;
+  try {
+    user = await User.findOne({ emailAddress });
+  } catch (e) {
+    return res.status('400').json({ success: false, msg: e.message });
+  }
 
   // if no user is found
   if (!user) {
-    return res
-      .status(400)
-      .json({
-        success: false,
-        msg: `No user found with email: ${emailAddress}`,
-      });
+    return res.status(400).json({
+      success: false,
+      msg: `No user found with email: ${emailAddress}`,
+    });
   }
 
   // set request body to new user
@@ -153,10 +178,19 @@ const resetPassword = async (req, res, next) => {
       success: false,
       msg: `Invalid user ID`,
     });
-  }
+  } else if (!isValidPassword(newPassword))
+    return res.status(400).json({
+      success: false,
+      msg: `Password must be between 6 and 10 characters`,
+    });
 
   // find user by passed in user id
-  const user = await User.findById(req.params.id);
+  let user;
+  try {
+    user = await User.findById(req.params.id);
+  } catch (e) {
+    return res.status('400').json({ success: false, msg: e.message });
+  }
 
   // if no user is found
   if (!user) {
@@ -202,7 +236,12 @@ const login = async (req, res, next) => {
   }
 
   // find user with entered email
-  let user = await User.findOne({ emailAddress }).select('+password');
+  let user;
+  try {
+    user = await User.findOne({ emailAddress }).select('+password');
+  } catch (e) {
+    return res.status('400').json({ success: false, msg: e.message });
+  }
 
   // reject request if user doesn't exist
   if (!user) {
@@ -237,6 +276,16 @@ const isValidObjectId = (id) => {
     return false;
   }
   return false;
+};
+
+const isValidEmail = (email) => {
+  if (email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) return true;
+  else return false;
+};
+
+const isValidPassword = (password) => {
+  if (password.length >= 6 && password.length <= 10) return true;
+  else return false;
 };
 
 module.exports = {
