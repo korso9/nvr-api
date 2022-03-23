@@ -1,106 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <title>Neurologica VR - Home</title>
-  </head>
-  <body>
-    <!-- NAV -->
-    <nav class="navbar navbar-expand-md navbar-light bg-white mb-3">
-      <div class="container">
-        <a class="navbar-brand" href="./">
-          <img src="img/logo-transparent.png" class="d-none d-sm-inline" width="100" height="100" alt="Logo" />
-					<img src="img/logo-transparent.png" class="d-inline d-sm-none" width="50" height="50" alt="Logo" />
-          <span class="h1 d-none d-sm-inline align-middle">Neurologica VR</span>
-					<span class="h3 d-inline d-sm-none align-middle">Neurologica VR</span>
-					</a
-        >
-        <button
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="./"">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./docs.html">Docs</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
-    <!-- APP JUMBO -->
-    <div class="container">
-      <div
-        class="jumbotron text-white jumbotron-image shadow mb-5"
-        style="
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+		integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+	<title>Neurologica VR - Home</title>
+</head>
+
+<body>
+	<!-- NAV -->
+	<nav class="navbar navbar-expand-md navbar-light bg-white mb-3">
+		<div class="container">
+			<a class="navbar-brand" href="./">
+				<img src="img/logo-transparent.png" class="d-none d-sm-inline" width="100" height="100" alt="Logo" />
+				<img src="img/logo-transparent.png" class="d-inline d-sm-none" width="50" height="50" alt="Logo" />
+				<span class="h1 d-none d-sm-inline align-middle">Neurologica VR</span>
+				<span class="h3 d-inline d-sm-none align-middle">Neurologica VR</span>
+			</a>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="./"">Home</a>
+          </li>
+					<li class=" nav-item">
+							<a class="nav-link" href="./docs.html"">API</a>
+          </li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- APP JUMBO -->
+	<div class=" container">
+								<div class="jumbotron text-white jumbotron-image shadow mb-5" style="
           background-size: cover;
           background-image: url(https://images.unsplash.com/photo-1563192176-46820b40a0ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1546&q=80);
-        "
-      >
-        <h2 class="mb-4">Learn something new</h2>
-        <p class="mb-4">
-          Visualize data structures is our first VR application, teaching all of the basics of data structures and algorithms.
-        </p>
-      </div>
-    </div>
+        ">
+									<h2 class="mb-4">Learn something new</h2>
+									<p class="mb-4">
+										Visualize data structures is our first VR application, teaching all of the basics of data structures
+										and
+										algorithms.
+									</p>
+									<a href="./docs/VDS_Proposal.pdf" download="VDS_Proposal" class="btn btn-light mr-3"><i
+											class="fa-solid fa-file-arrow-down"></i> Download Project Proposal</a>
+								</div>
+			</div>
 
-    <!-- VDS CARDS -->
-    <div class="container py-1">
-					<h2 class="h1 mb-4 d-none d-sm-block text-center">Visualize Data Structures</h2>
-					<h2 class="mb-4 d-block d-sm-none text-center">Visualize Data Structures</h2>
-					<ul class="list-group">
-						<li class="list-group-item my-2">
-							<h3 class="mb-3 text-center">Manage your account</h3>
-							<div class="card-deck d-block flex-column">
-								<div class="card mb-4 shadow">
-									<img
-										class="card-img-top"
-										src="./img/account_login.gif"
-										alt="Account Login"
-									/>
-									<div class="card-body">
-										<h5 class="card-title">Account Login</h5>
-									</div>
-								</div>
-								<div class="card mb-4 shadow">
-									<img
-										class="card-img-top"
-										src="./img/email_confirmation.gif"
-										alt="Email Confirmation"
-									/>
-									<div class="card-body">
-										<h5 class="card-title">Email Confirmation</h5>
-									</div>
-								</div>
-								<div class="card mb-4 shadow">
-									<img class="card-img-top" src="./img/password_reset.gif" alt="Password Reset" />
-									<div class="card-body">
-										<h5 class="card-title">Password Reset</h5>
-									</div>
+			<!-- VDS CARDS -->
+			<div class="container py-1">
+				<h2 class="h1 mb-4 d-none d-sm-block text-center">Visualize Data Structures</h2>
+				<h2 class="mb-4 d-block d-sm-none text-center">Visualize Data Structures</h2>
+				<ul class="list-group">
+					<li class="list-group-item my-2">
+						<h3 class="mb-3 text-center">Manage your account</h3>
+						<div class="card-deck d-block flex-column">
+							<div class="card mb-4 shadow">
+								<img class="card-img-top" src="./img/account_login.gif" alt="Account Login" />
+								<div class="card-body">
+									<h5 class="card-title">Account Login</h5>
 								</div>
 							</div>
-							<hr class="my-5">
+							<div class="card mb-4 shadow">
+								<img class="card-img-top" src="./img/email_confirmation.gif" alt="Email Confirmation" />
+								<div class="card-body">
+									<h5 class="card-title">Email Confirmation</h5>
+								</div>
+							</div>
+							<div class="card mb-4 shadow">
+								<img class="card-img-top" src="./img/password_reset.gif" alt="Password Reset" />
+								<div class="card-body">
+									<h5 class="card-title">Password Reset</h5>
+								</div>
+							</div>
+						</div>
+						<!-- Frontend form validation section for presentation -->
+						<!-- <hr class="my-5">
 							<h4 class="mb-4 text-center">Frontend form validation</h4>
 							<div class="card-deck d-block flex-column">
 								<div class="card mb-4 shadow">
@@ -129,153 +112,128 @@
 										<h5 class="card-title">Password Validation 2</h5>
 									</div>
 								</div>
-							</div>
-						</li>
-						
-						<li class="list-group-item my-2 list-group-item-secondary">
-							<h3 class="mb-3 text-center">Explore the lab</h3>
-							<div class="card-deck d-block flex-column">
-								<div class="card mb-4 shadow">
-									<img
-										class="card-img-top"
-										src="./img/observatory.gif"
-										alt="Observatory"
-									/>
-									<div class="card-body">
-										<h5 class="card-title">Observatory</h5>
-									</div>
-								</div>
-								<div class="card mb-4 shadow">
-									<img
-										class="card-img-top"
-										src="./img/lobby1.gif"
-										alt="Lobby 1"
-									/>
-									<div class="card-body">
-										<h5 class="card-title">Lobby 1</h5>
-									</div>
-								</div>
-								<div class="card mb-4 shadow">
-									<img class="card-img-top" src="./img/lobby2.gif" alt="Lobby 2" />
-									<div class="card-body">
-										<h5 class="card-title">Lobby 2</h5>
-									</div>
-								</div>
-							</div>
-						</li>
+							</div> -->
+					</li>
 
-						<li class="list-group-item my-2">
-							<h3 class="mb-3 text-center">View lessons</h3>
-							<div class="card-deck d-block flex-column">
-								<div class="card mb-4 shadow">
-									<img
-										class="card-img-top"
-										src="./img/arrays1.gif"
-										alt="Arrays Lesson 1"
-									/>
-									<div class="card-body">
-										<h5 class="card-title">Array Indexing</h5>
-									</div>
-								</div>
-								<div class="card mb-4 shadow">
-									<img
-										class="card-img-top"
-										src="./img/arrays2.gif"
-										alt="Arrays Lesson 1"
-									/>
-									<div class="card-body">
-										<h5 class="card-title">Array Data Types</h5>
-									</div>
-								</div>
-								<div class="card mb-4 shadow">
-									<img class="card-img-top" src="./img/arrays3.gif" alt="Arrays Lesson 1" />
-									<div class="card-body">
-										<h5 class="card-title">Multidimensional Arrays</h5>
-									</div>
+					<li class="list-group-item my-2 list-group-item-secondary">
+						<h3 class="mb-3 text-center">Explore the lab</h3>
+						<div class="card-deck d-block flex-column">
+							<div class="card mb-4 shadow">
+								<img class="card-img-top" src="./img/observatory.gif" alt="Observatory" />
+								<div class="card-body">
+									<h5 class="card-title">Observatory</h5>
 								</div>
 							</div>
-						</li>
-
-						<li class="list-group-item my-2 list-group-item-secondary">
-							<h3 class="mb-3 text-center">Take quizzes and get emailed your results</h3>
-							<div class="row">
-								<img src="./img/quiz.gif" class="col-12">
-								</img>
-								<img src="./img/quiz_results.png" class="col-12">
-								</img>
+							<div class="card mb-4 shadow">
+								<img class="card-img-top" src="./img/lobby1.gif" alt="Lobby 1" />
+								<div class="card-body">
+									<h5 class="card-title">Lobby 1</h5>
+								</div>
 							</div>
-						</li>
-					</ul>
-          
-					<hr class="my-2">
-					<h3 class="mb-4 text-center">Technologies Used</h3>
-					<div class="row">
-						<a href="https://unity.com/" target="_blank" rel="noopener noreferrer" class="col-6 col-md-3 btn btn-link text-secondary">
-							<i class="fab fa-unity fa-5x"></i>
-							<p class="text-center lead">Unity</p>
-						</a>
-						<a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" class="col-6 col-md-3 btn btn-link text-secondary">
-							<i class="fab fa-node-js fa-5x"></i>
-							<p class="text-center lead">Node.JS</p>
-						</a>
-						<a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer" class="col-6 col-md-3 btn btn-link text-secondary">
-							<i class="fab fa-envira fa-5x"></i>
-							<p class="text-center lead">MongoDB</p>
-						</a>
-						<a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" class="col-6 col-md-3 btn btn-link text-secondary">
-							<i class="fab fa-bootstrap fa-5x"></i>
-							<p class="text-center lead">Bootstrap</p>
-						</a>
-					</div>
-    </div>
+							<div class="card mb-4 shadow">
+								<img class="card-img-top" src="./img/lobby2.gif" alt="Lobby 2" />
+								<div class="card-body">
+									<h5 class="card-title">Lobby 2</h5>
+								</div>
+							</div>
+						</div>
+					</li>
 
-    <!-- API JUMBO -->
-    <div class="container py-1">
-      <div
-        class="jumbotron text-white jumbotron-image shadow"
-        style="
+					<li class="list-group-item my-2">
+						<h3 class="mb-3 text-center">View lessons</h3>
+						<div class="card-deck d-block flex-column">
+							<div class="card mb-4 shadow">
+								<img class="card-img-top" src="./img/arrays1.gif" alt="Arrays Lesson 1" />
+								<div class="card-body">
+									<h5 class="card-title">Array Indexing</h5>
+								</div>
+							</div>
+							<div class="card mb-4 shadow">
+								<img class="card-img-top" src="./img/arrays2.gif" alt="Arrays Lesson 1" />
+								<div class="card-body">
+									<h5 class="card-title">Array Data Types</h5>
+								</div>
+							</div>
+							<div class="card mb-4 shadow">
+								<img class="card-img-top" src="./img/arrays3.gif" alt="Arrays Lesson 1" />
+								<div class="card-body">
+									<h5 class="card-title">Multidimensional Arrays</h5>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<li class="list-group-item my-2 list-group-item-secondary">
+						<h3 class="mb-3 text-center">Take quizzes and get emailed your results</h3>
+						<div class="row">
+							<img src="./img/quiz.gif" class="col-12">
+							</img>
+							<img src="./img/quiz_results.png" class="col-12">
+							</img>
+						</div>
+					</li>
+				</ul>
+
+				<hr class="my-2">
+				<h3 class="mb-4 text-center">Technologies Used</h3>
+				<div class="row">
+					<a href="https://unity.com/" target="_blank" rel="noopener noreferrer"
+						class="col-6 col-md-3 btn btn-link text-secondary">
+						<i class="fab fa-unity fa-5x"></i>
+						<p class="text-center lead">Unity</p>
+					</a>
+					<a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer"
+						class="col-6 col-md-3 btn btn-link text-secondary">
+						<i class="fab fa-node-js fa-5x"></i>
+						<p class="text-center lead">Node.JS</p>
+					</a>
+					<a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer"
+						class="col-6 col-md-3 btn btn-link text-secondary">
+						<i class="fab fa-envira fa-5x"></i>
+						<p class="text-center lead">MongoDB</p>
+					</a>
+					<a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer"
+						class="col-6 col-md-3 btn btn-link text-secondary">
+						<i class="fab fa-bootstrap fa-5x"></i>
+						<p class="text-center lead">Bootstrap</p>
+					</a>
+				</div>
+			</div>
+
+			<!-- API JUMBO -->
+			<div class="container py-1">
+				<div class="jumbotron text-white jumbotron-image shadow" style="
           background-size: cover;
           background-image: url(https://images.unsplash.com/photo-1480843669328-3f7e37d196ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80);
-        "
-      >
-        <h2 class="mb-4">Check out our server app</h2>
-        <a
-          href="https://github.com/orsoknows/nvr-api" target="_blank" rel="noopener noreferrer"
-          class="btn btn-light mr-3"
-          ><i class="fab fa-github"></i> Github</a
-        >
-        <a href="./docs.html" class="btn btn-light"
-          ><i class="fas fa-book"></i> Docs</a
-        >
-      </div>
-    </div>
+        ">
+					<h2 class="mb-4">Check out our server app</h2>
+					<a href="https://github.com/orsoknows/nvr-api" target="_blank" rel="noopener noreferrer"
+						class="btn btn-light mr-3"><i class="fab fa-github"></i> Github</a>
+					<a href="./docs.html" class="btn btn-light"><i class="fas fa-book"></i> API Docs</a>
+				</div>
+			</div>
 
-    <!-- FOOTER -->
-    <footer id="main-footer" class="py-3 bg-white text-dark">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col">
-            Neurologica VR &copy;
-            <span id="year">2021</span>
-          </div>
-        </div>
-      </div>
-    </footer>
+			<!-- FOOTER -->
+			<footer id="main-footer" class="py-3 bg-white text-dark">
+				<div class="container">
+					<div class="row text-center">
+						<div class="col">
+							Neurologica VR &copy;
+							<span id="year">2021</span>
+						</div>
+					</div>
+				</div>
+			</footer>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+				integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+				crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+				integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+				crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+				integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+				crossorigin="anonymous"></script>
+</body>
+
 </html>

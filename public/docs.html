@@ -1,518 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <title>API Docs</title>
-  </head>
-  <body>
-    <!-- NAV -->
-    <nav class="navbar navbar-expand-md navbar-light bg-white mb-3">
-      <div class="container">
-        <a class="navbar-brand" href="./">
-          <img src="img/logo-transparent.png" class="d-none d-sm-inline" width="100" height="100" alt="Logo" />
-					<img src="img/logo-transparent.png" class="d-inline d-sm-none" width="50" height="50" alt="Logo" />
-          <span class="h1 d-none d-sm-inline align-middle">Neurologica VR</span>
-					<span class="h3 d-inline d-sm-none align-middle">Neurologica VR</span>
-					</a
-        >
-        <button
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="./"">Home</a>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+		integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+	<title>API Docs</title>
+</head>
+
+<body>
+	<!-- NAV -->
+	<nav class="navbar navbar-expand-md navbar-light bg-white mb-3">
+		<div class="container">
+			<a class="navbar-brand" href="./">
+				<img src="img/logo-transparent.png" class="d-none d-sm-inline" width="100" height="100" alt="Logo" />
+				<img src="img/logo-transparent.png" class="d-inline d-sm-none" width="50" height="50" alt="Logo" />
+				<span class="h1 d-none d-sm-inline align-middle">Neurologica VR</span>
+				<span class="h3 d-inline d-sm-none align-middle">Neurologica VR</span>
+			</a>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="./"">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./docs.html">Docs</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+            <li class=" nav-item">
+							<a class="nav-link" href="./docs.html">API</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-    <!-- DOCS -->
-    <div class="container py-1">
-      <div class="container py-1">
-        <h1 class="mb-5">Backend API Docs</h1>
+	<!-- DOCS -->
+	<div class="container py-1">
+		<div class="container py-1">
+			<h1 class="mb-5">Backend API Docs</h1>
 
-        <div id="accordion">
-          <h2>User Authentication</h2>
-          <p>All routes for user authentication</p>
-          <div class="card">
-            <div class="card-header" id="Login">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link text-muted"
-                  data-toggle="collapse"
-                  data-target="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  <p class="lead d-inline text-warning font-weight-bold">
-                    POST
-                  </p>
-                  <p class="lead d-inline">- Login</p>
-                </button>
-              </h5>
-            </div>
+			<div id="accordion">
+				<h2>User Authentication</h2>
+				<p>All routes for user authentication</p>
+				<div class="card">
+					<div class="card-header" id="Login">
+						<h5 class="mb-0">
+							<button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseOne"
+								aria-expanded="true" aria-controls="collapseOne">
+								<p class="lead d-inline text-warning font-weight-bold">
+									POST
+								</p>
+								<p class="lead d-inline">- Login</p>
+							</button>
+						</h5>
+					</div>
 
-            <div
-              id="collapseOne"
-              class="collapse show"
-              aria-labelledby="Login"
-              data-parent="#accordion"
-            >
-              <div class="card-body">
-                <div class="container mb-4">
-                  <p class="d-inline font-weight-bold">Description</p>
-                  <p class="d-inline">
-                    - Log the user in and return JSON Web Token
-                  </p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="font-weight-bold">URL</p>
-                  <div class="p-3 mb-4 bg-light border">
-                    <code class="text-dark"
-                      >https://www.neurologicavr.com/api/users/login</code
-                    >
-                  </div>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="d-inline font-weight-bold">BODY</p>
-                  <p class="d-inline">- JSON</p>
-                  <div class="p-3 my-2 bg-light border">
-                    <code class="text-dark"
-                      >{ "emailAddress": "", "password": "" }</code
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+					<div id="collapseOne" class="collapse show" aria-labelledby="Login" data-parent="#accordion">
+						<div class="card-body">
+							<div class="container mb-4">
+								<p class="d-inline font-weight-bold">Description</p>
+								<p class="d-inline">
+									- Log the user in and return JSON Web Token
+								</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="font-weight-bold">URL</p>
+								<div class="p-3 mb-4 bg-light border">
+									<code class="text-dark">https://www.neurologicavr.com/api/users/login</code>
+								</div>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="d-inline font-weight-bold">BODY</p>
+								<p class="d-inline">- JSON</p>
+								<div class="p-3 my-2 bg-light border">
+									<code class="text-dark">{ "emailAddress": "", "password": "" }</code>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-          <div class="card">
-            <div class="card-header" id="Register">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link text-muted"
-                  data-toggle="collapse"
-                  data-target="#collapseTwo"
-                  aria-expanded="true"
-                  aria-controls="collapseTwo"
-                >
-                  <p class="lead d-inline text-warning font-weight-bold">
-                    POST
-                  </p>
-                  <p class="lead d-inline">- Register</p>
-                </button>
-              </h5>
-            </div>
+				<div class="card">
+					<div class="card-header" id="Register">
+						<h5 class="mb-0">
+							<button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseTwo"
+								aria-expanded="true" aria-controls="collapseTwo">
+								<p class="lead d-inline text-warning font-weight-bold">
+									POST
+								</p>
+								<p class="lead d-inline">- Register</p>
+							</button>
+						</h5>
+					</div>
 
-            <div
-              id="collapseTwo"
-              class="collapse hide"
-              aria-labelledby="Register"
-              data-parent="#accordion"
-            >
-              <div class="card-body">
-                <div class="container mb-4">
-                  <p class="d-inline font-weight-bold">Description</p>
-                  <p class="d-inline">- Register a new user</p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="font-weight-bold">URL</p>
-                  <div class="p-3 mb-4 bg-light border">
-                    <code class="text-dark"
-                      >https://www.neurologicavr.com/api/users/register</code
-                    >
-                  </div>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="d-inline font-weight-bold">BODY</p>
-                  <p class="d-inline">- JSON</p>
-                  <div class="p-3 my-2 bg-light border">
-                    <code class="text-dark"
-                      >{ "emailAddress": "", "firstName": "", "lastName": "",
-                      "password": "" }</code
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+					<div id="collapseTwo" class="collapse hide" aria-labelledby="Register" data-parent="#accordion">
+						<div class="card-body">
+							<div class="container mb-4">
+								<p class="d-inline font-weight-bold">Description</p>
+								<p class="d-inline">- Register a new user</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="font-weight-bold">URL</p>
+								<div class="p-3 mb-4 bg-light border">
+									<code class="text-dark">https://www.neurologicavr.com/api/users/register</code>
+								</div>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="d-inline font-weight-bold">BODY</p>
+								<p class="d-inline">- JSON</p>
+								<div class="p-3 my-2 bg-light border">
+									<code class="text-dark">{ "emailAddress": "", "firstName": "", "lastName": "",
+                      "password": "" }</code>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-          <div class="card">
-            <div class="card-header" id="ConfirmEmail">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link text-muted"
-                  data-toggle="collapse"
-                  data-target="#collapseThree"
-                  aria-expanded="true"
-                  aria-controls="collapseThree"
-                >
-                  <p class="lead d-inline text-primary font-weight-bold">PUT</p>
-                  <p class="lead d-inline">- Confirm Email</p>
-                </button>
-              </h5>
-            </div>
+				<div class="card">
+					<div class="card-header" id="ConfirmEmail">
+						<h5 class="mb-0">
+							<button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseThree"
+								aria-expanded="true" aria-controls="collapseThree">
+								<p class="lead d-inline text-primary font-weight-bold">PUT</p>
+								<p class="lead d-inline">- Confirm Email</p>
+							</button>
+						</h5>
+					</div>
 
-            <div
-              id="collapseThree"
-              class="collapse hide"
-              aria-labelledby="ConfirmEmail"
-              data-parent="#accordion"
-            >
-              <div class="card-body">
-                <div class="container mb-4">
-                  <p class="d-inline font-weight-bold">Description</p>
-                  <p class="d-inline">- Confirm user email</p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="font-weight-bold">URL</p>
-                  <div class="p-3 mb-4 bg-light border">
-                    <code class="text-dark"
-                      >https://www.neurologicavr.com/api/users/confirm/:id</code
-                    >
-                  </div>
-                </div>
-                <hr />
-                <div class="container mb-4">
-                  <p class="font-weight-bold">PATH PARAMS</p>
-                  <p class="d-inline font-weight-bold">id</p>
-                  <p class="d-inline">- User's account id</p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="d-inline font-weight-bold">BODY</p>
-                  <p class="d-inline">- JSON</p>
-                  <div class="p-3 my-2 bg-light border">
-                    <code class="text-dark">{ "verificationCode": "" }</code>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+					<div id="collapseThree" class="collapse hide" aria-labelledby="ConfirmEmail" data-parent="#accordion">
+						<div class="card-body">
+							<div class="container mb-4">
+								<p class="d-inline font-weight-bold">Description</p>
+								<p class="d-inline">- Confirm user email</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="font-weight-bold">URL</p>
+								<div class="p-3 mb-4 bg-light border">
+									<code class="text-dark">https://www.neurologicavr.com/api/users/confirm/:id</code>
+								</div>
+							</div>
+							<hr />
+							<div class="container mb-4">
+								<p class="font-weight-bold">PATH PARAMS</p>
+								<p class="d-inline font-weight-bold">id</p>
+								<p class="d-inline">- User's account id</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="d-inline font-weight-bold">BODY</p>
+								<p class="d-inline">- JSON</p>
+								<div class="p-3 my-2 bg-light border">
+									<code class="text-dark">{ "verificationCode": "" }</code>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-          <div class="card">
-            <div class="card-header" id="ForgotPassword">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link text-muted"
-                  data-toggle="collapse"
-                  data-target="#collapseFour"
-                  aria-expanded="true"
-                  aria-controls="collapseFour"
-                >
-                  <p class="lead d-inline text-primary font-weight-bold">PUT</p>
-                  <p class="lead d-inline">- Forgot Password</p>
-                </button>
-              </h5>
-            </div>
+				<div class="card">
+					<div class="card-header" id="ForgotPassword">
+						<h5 class="mb-0">
+							<button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseFour"
+								aria-expanded="true" aria-controls="collapseFour">
+								<p class="lead d-inline text-primary font-weight-bold">PUT</p>
+								<p class="lead d-inline">- Forgot Password</p>
+							</button>
+						</h5>
+					</div>
 
-            <div
-              id="collapseFour"
-              class="collapse hide"
-              aria-labelledby="ForgotPassword"
-              data-parent="#accordion"
-            >
-              <div class="card-body">
-                <div class="container mb-4">
-                  <p class="d-inline font-weight-bold">Description</p>
-                  <p class="d-inline">- Request to initiate password reset</p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="font-weight-bold">URL</p>
-                  <div class="p-3 mb-4 bg-light border">
-                    <code class="text-dark"
-                      >https://www.neurologicavr.com/api/users/forgot</code
-                    >
-                  </div>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="d-inline font-weight-bold">BODY</p>
-                  <p class="d-inline">- JSON</p>
-                  <div class="p-3 my-2 bg-light border">
-                    <code class="text-dark">{ "emailAddress": "" }</code>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+					<div id="collapseFour" class="collapse hide" aria-labelledby="ForgotPassword" data-parent="#accordion">
+						<div class="card-body">
+							<div class="container mb-4">
+								<p class="d-inline font-weight-bold">Description</p>
+								<p class="d-inline">- Request to initiate password reset</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="font-weight-bold">URL</p>
+								<div class="p-3 mb-4 bg-light border">
+									<code class="text-dark">https://www.neurologicavr.com/api/users/forgot</code>
+								</div>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="d-inline font-weight-bold">BODY</p>
+								<p class="d-inline">- JSON</p>
+								<div class="p-3 my-2 bg-light border">
+									<code class="text-dark">{ "emailAddress": "" }</code>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-          <div class="card">
-            <div class="card-header" id="ResetPassword">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link text-muted"
-                  data-toggle="collapse"
-                  data-target="#collapseFive"
-                  aria-expanded="true"
-                  aria-controls="collapseFive"
-                >
-                  <p class="lead d-inline text-primary font-weight-bold">PUT</p>
-                  <p class="lead d-inline">- Reset Password</p>
-                </button>
-              </h5>
-            </div>
+				<div class="card">
+					<div class="card-header" id="ResetPassword">
+						<h5 class="mb-0">
+							<button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseFive"
+								aria-expanded="true" aria-controls="collapseFive">
+								<p class="lead d-inline text-primary font-weight-bold">PUT</p>
+								<p class="lead d-inline">- Reset Password</p>
+							</button>
+						</h5>
+					</div>
 
-            <div
-              id="collapseFive"
-              class="collapse hide"
-              aria-labelledby="ResetPassword"
-              data-parent="#accordion"
-            >
-              <div class="card-body">
-                <div class="container mb-4">
-                  <p class="d-inline font-weight-bold">Description</p>
-                  <p class="d-inline">- Reset user password</p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="font-weight-bold">URL</p>
-                  <div class="p-3 mb-4 bg-light border">
-                    <code class="text-dark"
-                      >https://www.neurologicavr.com/api/users/reset/:id</code
-                    >
-                  </div>
-                </div>
-                <hr />
-                <div class="container mb-4">
-                  <p class="font-weight-bold">PATH PARAMS</p>
-                  <p class="d-inline font-weight-bold">id</p>
-                  <p class="d-inline">- User's account id</p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="d-inline font-weight-bold">BODY</p>
-                  <p class="d-inline">- JSON</p>
-                  <div class="p-3 my-2 bg-light border">
-                    <code class="text-dark">{ "emailAddress": "" }</code>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+					<div id="collapseFive" class="collapse hide" aria-labelledby="ResetPassword" data-parent="#accordion">
+						<div class="card-body">
+							<div class="container mb-4">
+								<p class="d-inline font-weight-bold">Description</p>
+								<p class="d-inline">- Reset user password</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="font-weight-bold">URL</p>
+								<div class="p-3 mb-4 bg-light border">
+									<code class="text-dark">https://www.neurologicavr.com/api/users/reset/:id</code>
+								</div>
+							</div>
+							<hr />
+							<div class="container mb-4">
+								<p class="font-weight-bold">PATH PARAMS</p>
+								<p class="d-inline font-weight-bold">id</p>
+								<p class="d-inline">- User's account id</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="d-inline font-weight-bold">BODY</p>
+								<p class="d-inline">- JSON</p>
+								<div class="p-3 my-2 bg-light border">
+									<code class="text-dark">{ "emailAddress": "" }</code>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-          <div class="card">
-            <div class="card-header" id="ResendCode">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link text-muted"
-                  data-toggle="collapse"
-                  data-target="#collapseSix"
-                  aria-expanded="true"
-                  aria-controls="collapseSix"
-                >
-                  <p class="lead d-inline text-success font-weight-bold">GET</p>
-                  <p class="lead d-inline">- Resend Code</p>
-                </button>
-              </h5>
-            </div>
+				<div class="card">
+					<div class="card-header" id="ResendCode">
+						<h5 class="mb-0">
+							<button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseSix"
+								aria-expanded="true" aria-controls="collapseSix">
+								<p class="lead d-inline text-success font-weight-bold">GET</p>
+								<p class="lead d-inline">- Resend Code</p>
+							</button>
+						</h5>
+					</div>
 
-            <div
-              id="collapseSix"
-              class="collapse hide"
-              aria-labelledby="ResendCode"
-              data-parent="#accordion"
-            >
-              <div class="card-body">
-                <div class="container mb-4">
-                  <p class="d-inline font-weight-bold">Description</p>
-                  <p class="d-inline">- Reset and send new verification code</p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="font-weight-bold">URL</p>
-                  <div class="p-3 mb-4 bg-light border">
-                    <code class="text-dark"
-                      >https://www.neurologicavr.com/api/users/reset/:id</code
-                    >
-                  </div>
-                </div>
-                <hr />
-                <div class="container mb-4">
-                  <p class="font-weight-bold">PATH PARAMS</p>
-                  <p class="d-inline font-weight-bold">id</p>
-                  <p class="d-inline">- User's account id</p>
-                </div>
-              </div>
-            </div>
-          </div>
+					<div id="collapseSix" class="collapse hide" aria-labelledby="ResendCode" data-parent="#accordion">
+						<div class="card-body">
+							<div class="container mb-4">
+								<p class="d-inline font-weight-bold">Description</p>
+								<p class="d-inline">- Reset and send new verification code</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="font-weight-bold">URL</p>
+								<div class="p-3 mb-4 bg-light border">
+									<code class="text-dark">https://www.neurologicavr.com/api/users/reset/:id</code>
+								</div>
+							</div>
+							<hr />
+							<div class="container mb-4">
+								<p class="font-weight-bold">PATH PARAMS</p>
+								<p class="d-inline font-weight-bold">id</p>
+								<p class="d-inline">- User's account id</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-          <h2 class="mt-5">Scores</h2>
-          <p>All routes for user quiz scores</p>
+				<h2 class="mt-5">Scores</h2>
+				<p>All routes for user quiz scores</p>
 
-          <div class="card">
-            <div class="card-header" id="PostScore">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link text-muted"
-                  data-toggle="collapse"
-                  data-target="#collapseSeven"
-                  aria-expanded="true"
-                  aria-controls="collapseSeven"
-                >
-                  <p class="lead d-inline text-warning font-weight-bold">
-                    POST
-                  </p>
-                  <p class="lead d-inline">- Post New Score</p>
-                </button>
-              </h5>
-            </div>
+				<div class="card">
+					<div class="card-header" id="PostScore">
+						<h5 class="mb-0">
+							<button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseSeven"
+								aria-expanded="true" aria-controls="collapseSeven">
+								<p class="lead d-inline text-warning font-weight-bold">
+									POST
+								</p>
+								<p class="lead d-inline">- Post New Score</p>
+							</button>
+						</h5>
+					</div>
 
-            <div
-              id="collapseSeven"
-              class="collapse hide"
-              aria-labelledby="PostScore"
-              data-parent="#accordion"
-            >
-              <div class="card-body">
-                <div class="container mb-4">
-                  <p class="d-inline font-weight-bold">Description</p>
-                  <p class="d-inline">
-                    - Add a new score for a specific product and lesson
-                  </p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="font-weight-bold">URL</p>
-                  <div class="p-3 mb-4 bg-light border">
-                    <code class="text-dark"
-                      >https://www.neurologicavr.com/api/scores</code
-                    >
-                  </div>
-                </div>
-                <hr />
-                <div class="container mb-4">
-                  <p class="d-inline font-weight-bold">AUTHORIZATION</p>
-                  <p class="d-inline">- Bearer Token</p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="d-inline font-weight-bold">BODY</p>
-                  <p class="d-inline">- JSON</p>
-                  <div class="p-3 my-2 bg-light border">
-                    <code class="text-dark"
-                      >{ "product": "", "lesson": "", "newScore": "" }</code
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+					<div id="collapseSeven" class="collapse hide" aria-labelledby="PostScore" data-parent="#accordion">
+						<div class="card-body">
+							<div class="container mb-4">
+								<p class="d-inline font-weight-bold">Description</p>
+								<p class="d-inline">
+									- Add a new score for a specific product and lesson
+								</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="font-weight-bold">URL</p>
+								<div class="p-3 mb-4 bg-light border">
+									<code class="text-dark">https://www.neurologicavr.com/api/scores</code>
+								</div>
+							</div>
+							<hr />
+							<div class="container mb-4">
+								<p class="d-inline font-weight-bold">AUTHORIZATION</p>
+								<p class="d-inline">- Bearer Token</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="d-inline font-weight-bold">BODY</p>
+								<p class="d-inline">- JSON</p>
+								<div class="p-3 my-2 bg-light border">
+									<code class="text-dark">{ "product": "", "lesson": "", "newScore": "" }</code>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-          <div class="card">
-            <div class="card-header" id="GetScore">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link text-muted"
-                  data-toggle="collapse"
-                  data-target="#collapseEight"
-                  aria-expanded="true"
-                  aria-controls="collapseEight"
-                >
-                  <p class="lead d-inline text-success font-weight-bold">GET</p>
-                  <p class="lead d-inline">- Get Score</p>
-                </button>
-              </h5>
-            </div>
+				<div class="card">
+					<div class="card-header" id="GetScore">
+						<h5 class="mb-0">
+							<button class="btn btn-link text-muted" data-toggle="collapse" data-target="#collapseEight"
+								aria-expanded="true" aria-controls="collapseEight">
+								<p class="lead d-inline text-success font-weight-bold">GET</p>
+								<p class="lead d-inline">- Get Score</p>
+							</button>
+						</h5>
+					</div>
 
-            <div
-              id="collapseEight"
-              class="collapse hide"
-              aria-labelledby="GetScore"
-              data-parent="#accordion"
-            >
-              <div class="card-body">
-                <div class="container mb-4">
-                  <p class="d-inline font-weight-bold">Description</p>
-                  <p class="d-inline">
-                    - Get user's score of a specific lesson
-                  </p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="font-weight-bold">URL</p>
-                  <div class="p-3 mb-4 bg-light border">
-                    <code class="text-dark"
-                      >https://www.neurologicavr.com/api/scores/:product/:lesson</code
-                    >
-                  </div>
-                </div>
-                <hr />
-                <div class="container mb-4">
-                  <p class="d-inline font-weight-bold">AUTHORIZATION</p>
-                  <p class="d-inline">- Bearer Token</p>
-                </div>
-                <hr />
-                <div class="container">
-                  <p class="font-weight-bold">PATH PARAMS</p>
-                  <p class="d-inline font-weight-bold">product</p>
-                  <p class="d-inline">- Product as string (e.g. 'vds')</p>
-                  <br class="mb-3" />
-                  <p class="d-inline font-weight-bold">lesson</p>
-                  <p class="d-inline">- Lesson number</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+					<div id="collapseEight" class="collapse hide" aria-labelledby="GetScore" data-parent="#accordion">
+						<div class="card-body">
+							<div class="container mb-4">
+								<p class="d-inline font-weight-bold">Description</p>
+								<p class="d-inline">
+									- Get user's score of a specific lesson
+								</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="font-weight-bold">URL</p>
+								<div class="p-3 mb-4 bg-light border">
+									<code class="text-dark">https://www.neurologicavr.com/api/scores/:product/:lesson</code>
+								</div>
+							</div>
+							<hr />
+							<div class="container mb-4">
+								<p class="d-inline font-weight-bold">AUTHORIZATION</p>
+								<p class="d-inline">- Bearer Token</p>
+							</div>
+							<hr />
+							<div class="container">
+								<p class="font-weight-bold">PATH PARAMS</p>
+								<p class="d-inline font-weight-bold">product</p>
+								<p class="d-inline">- Product as string (e.g. 'vds')</p>
+								<br class="mb-3" />
+								<p class="d-inline font-weight-bold">lesson</p>
+								<p class="d-inline">- Lesson number</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <!-- FOOTER -->
-    <footer id="main-footer" class="py-3 bg-white text-dark">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col">
-            Neurologica VR &copy;
-            <span id="year">2021</span>
-          </div>
-        </div>
-      </div>
-    </footer>
+	<!-- FOOTER -->
+	<footer id="main-footer" class="py-3 bg-white text-dark">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col">
+					Neurologica VR &copy;
+					<span id="year">2021</span>
+				</div>
+			</div>
+		</div>
+	</footer>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+
 </html>

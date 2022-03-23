@@ -30,26 +30,26 @@ app.use(mongoSanitize());
 app.use(xss());
 
 const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
+	windowMs: 15 * 60 * 1000,
+	max: 100,
 });
 app.use('/api/', apiLimiter);
 
 app.use(helmet());
 app.use(
-  helmet.contentSecurityPolicy({
-    useDefaults: true,
-    directives: {
-      scriptSrc: [
-        "'self'",
-        'code.jquery.com',
-        'cdnjs.cloudflare.com',
-        'stackpath.bootstrapcdn.com',
-      ],
-      imgSrc: ["'self'", 'data:', 'images.unsplash.com'],
-    },
-    reportOnly: false,
-  })
+	helmet.contentSecurityPolicy({
+		useDefaults: true,
+		directives: {
+			scriptSrc: [
+				"'self'",
+				'code.jquery.com',
+				'cdnjs.cloudflare.com',
+				'stackpath.bootstrapcdn.com',
+			],
+			imgSrc: ["'self'", 'data:', 'images.unsplash.com'],
+		},
+		reportOnly: false,
+	})
 );
 
 // Static folder
@@ -63,6 +63,6 @@ const port = process.env.PORT || 5000;
 
 // Start server
 const server = app.listen(
-  port,
-  console.log(`Server running in ${process.env.NODE_ENV} on port ${port}...`)
+	port,
+	console.log(`Server running in ${process.env.NODE_ENV} on port ${port}...`)
 );
