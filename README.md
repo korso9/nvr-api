@@ -122,11 +122,11 @@ This is an example of how to list things you need to use the software and how to
 
 ### Context Diagram
 
-<img src="./images/ContextDiagramV3.png" alt="Context Diagram" width="100%">
+<img src="./images/ContextDiagramV3.jpg" alt="Context Diagram" width="100%">
 
 ### Data Flow Diagram
 
-<img src="./images/L1DataFlowDiagramV2.png" alt="Database Diagram" width="100%">
+<img src="./images/L1DataFlowDiagramV2.jpg" alt="Database Diagram" width="100%">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
