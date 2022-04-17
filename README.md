@@ -57,8 +57,6 @@ This application was developed to serve as the backend for future VR application
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 - [Unity](https://unity.com/)
 - [Node.js](https://nodejs.org/)
 - [Express.js](https://expressjs.com/)
@@ -74,8 +72,6 @@ This section should list any major frameworks/libraries used to bootstrap your p
 Instructions for running the NVR API locally
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
 
 - Set up a database at https://mongodb.com
 - Set up an account at https://mailgun.com
@@ -93,18 +89,18 @@ This is an example of how to list things you need to use the software and how to
    ```
 3. Rename `config.env.env` to `config.env`
 4. In `config.env`...
-    1. Enter your MongoDB API key 
-   		```js
-   		MONGO_URI='ENTER YOUR MONGODB API KEY'
-   		```
-   	2. Enter your Mailgun API key 
-   		```js
-   		MAILGUN_API_KEY='ENTER YOUR MAILGUN API KEY'
-   		```
-		1. Enter a JWT secret key
-   		```js
-   		JWT_SECRET='ENTER A JWT SECRET'
-   		```
+   1. Enter your MongoDB API key
+      ```js
+      MONGO_URI = 'ENTER YOUR MONGODB API KEY';
+      ```
+   2. Enter your Mailgun API key
+      ```js
+      MAILGUN_API_KEY = 'ENTER YOUR MAILGUN API KEY';
+      ```
+      1. Enter a JWT secret key
+      ```js
+      JWT_SECRET = 'ENTER A JWT SECRET';
+      ```
 5. Run the server in development mode
    ```js
    npm run dev
@@ -127,23 +123,6 @@ This is an example of how to list things you need to use the software and how to
 ### Data Flow Diagram
 
 <img src="./images/L1DataFlowDiagramV2.jpg" alt="Database Diagram" width="100%">
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
