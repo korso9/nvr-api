@@ -130,7 +130,7 @@ Instructions for running the NVR API locally
 
 ## Contact
 
-Ken Orsini - [ktorsini.com](https://ktorsini.com) - korsini515@gmail.com
+Ken Orsini - [kto.dev](https://kto.dev) - korsini515@gmail.com
 
 Brendan Chase - [chasevisualsllc.com](https://chasevisualsllc.com) - chase.brendan.k@gmail.com
 
